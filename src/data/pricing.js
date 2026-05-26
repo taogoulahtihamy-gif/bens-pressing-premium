@@ -22,10 +22,10 @@ export const pricing = [
   {
     cat: 'Tenues africaines & linge maison',
     items: [
-      { name: 'Boubou simple', price: '2 000 FCFA', image: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=900&q=80' },
-      { name: 'Grand boubou', price: '4 000 FCFA', image: 'https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?auto=format&fit=crop&w=900&q=80' },
+      { name: 'Boubou simple', price: '2 000 FCFA', image: 'https://images.unsplash.com/photo-1763823183722-bba1c4f14c4f?auto=format&fit=crop&w=900&q=80' },
+      { name: 'Grand boubou', price: '4 000 FCFA', image: 'https://images.unsplash.com/photo-1745669702821-b994a8b9ad78?auto=format&fit=crop&w=900&q=80' },
       { name: 'Couverture', price: 'à partir de 4 000 FCFA', image: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=900&q=80' },
-      { name: 'Serviette', price: '1 000 à 1 500 FCFA', image: 'https://images.unsplash.com/photo-1616627562061-5e16f0641b53?auto=format&fit=crop&w=900&q=80' },
+      { name: 'Serviette', price: '1 000 à 1 500 FCFA', image: 'https://images.unsplash.com/photo-1760722974657-f64bce2f9cc5?auto=format&fit=crop&w=900&q=80' },
     ],
   },
 ];
