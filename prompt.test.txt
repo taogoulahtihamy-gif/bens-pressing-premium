@@ -1,72 +1,192 @@
-Créer le backend complet du projet Ben’s Pressing avec Node.js + Express + PostgreSQL.
-
-OBJECTIF :
-Permettre :
-- réservation réelle,
-- stockage commandes,
-- suivi commande,
-- dashboard admin.
-
-STACK :
-- Node.js
-- Express
-- PostgreSQL
-- Prisma ORM
-- dotenv
-- cors
-- nodemon
-
-STRUCTURE :
-src/
-  controllers/
-  routes/
-  middleware/
-  services/
-  prisma/
-  app.js
-  server.js
-
-FONCTIONNALITÉS :
-1. POST /api/orders
-Créer une commande
-
-2. GET /api/orders
-Lister commandes
-
-3. GET /api/orders/:trackingCode
-Suivi commande
-
-4. PATCH /api/orders/:id/status
-Changer statut
-
-STATUTS :
-- pending
-- collected
-- cleaning
-- ironing
-- delivery
-- completed
-
-DONNÉES COMMANDE :
-- id
-- fullName
-- phone
-- address
-- service
-- clothes
-- instructions
-- pickupDate
-- pickupTime
-- totalPrice
-- status
-- trackingCode
-- createdAt
+AMÉLIORE LE SITE BEN’S PRESSING PREMIUM SANS RIEN CASSER NI SUPPRIMER DE L’EXISTANT.
 
 IMPORTANT :
-- Générer automatiquement trackingCode
-- API propre
-- Architecture professionnelle
-- Prisma schema complet
-- .env complet
-- PostgreSQL prêt
-- Projet fonctionnel avec npm install puis npm run dev
+- Ne modifie PAS la structure actuelle.
+- Ne casse PAS les routes existantes.
+- Ne supprime PAS les sections actuelles.
+- Ne touche PAS au système WhatsApp déjà fonctionnel.
+- Garde EXACTEMENT le thème noir + doré premium actuel.
+- Garde les prix, les photos et les cartes déjà présentes.
+- Garde le responsive actuel.
+- Garde les animations existantes.
+- Le site fonctionne déjà : tu dois UNIQUEMENT le rendre plus premium et vivant.
+
+OBJECTIF :
+Transformer le site en véritable site premium luxe moderne de pressing haut de gamme.
+
+========================
+1. HERO SECTION PREMIUM
+========================
+
+REMPLACE UNIQUEMENT le grand bloc noir abstrait à droite du hero.
+
+Le nouveau hero doit contenir :
+- une vraie photo premium de pressing moderne
+OU
+- des vêtements suspendus luxe
+OU
+- un employé pressing premium
+OU
+- livraison pressing élégante
+
+Ajouter :
+- effet glassmorphism
+- glow doré subtil
+- animation légère flottante
+- overlay noir transparent
+- bordures premium
+
+Le hero doit paraître vivant et ultra moderne.
+
+========================
+2. AJOUTER ANIMATIONS PREMIUM
+========================
+
+Utiliser Framer Motion.
+
+Ajouter :
+- fade-up au scroll
+- zoom léger des images au hover
+- glow doré sur les boutons
+- animation douce sur les cartes
+- transitions fluides
+
+Animations élégantes et lentes.
+Pas d’effet agressif.
+
+========================
+3. CORRIGER LES IMAGES MANQUANTES
+========================
+
+Ajouter de vraies images premium pour :
+- Grand boubou
+- Serviette
+
+IMPORTANT :
+- garder exactement les mêmes prix
+- garder exactement les mêmes cartes
+- garder exactement la même structure
+
+========================
+4. AJOUTER SECTION
+“POURQUOI NOUS CHOISIR”
+========================
+
+Créer une nouvelle section premium avec icônes luxe.
+
+Contenu :
+- Livraison express 24h
+- Collecte à domicile
+- Qualité premium
+- Service client rapide
+- WhatsApp instantané
+- Traitement professionnel
+
+Design :
+- cartes premium noir/doré
+- icônes modernes
+- hover premium
+- animations élégantes
+
+========================
+5. AJOUTER SECTION STATISTIQUES
+========================
+
+Créer une section avec compteurs animés :
+
+- 2500+ vêtements nettoyés
+- 800+ clients satisfaits
+- Livraison 24h
+- 98% satisfaction
+
+Design :
+- chiffres dorés
+- animation compteur
+- fond premium sombre
+
+========================
+6. AJOUTER TÉMOIGNAGES CLIENTS
+========================
+
+Créer une section testimonials premium.
+
+Exemples :
+“Service impeccable”
+“Livraison rapide”
+“Très professionnel”
+“Mes vêtements ressortent toujours parfaits”
+
+Design :
+- cartes luxe
+- étoiles dorées
+- avatars élégants
+- animations douces
+
+========================
+7. AJOUTER BOUTON WHATSAPP FLOTTANT
+========================
+
+Ajouter un bouton WhatsApp flottant en bas à droite.
+
+Fonction :
+- ouvre directement WhatsApp
+- message prérempli
+- animation pulse douce
+- glow vert premium
+
+IMPORTANT :
+Ne pas remplacer le système WhatsApp existant.
+C’est un ajout seulement.
+
+========================
+8. AJOUTER GALERIE PREMIUM
+========================
+
+Créer une galerie style Instagram premium.
+
+Images :
+- pressing
+- vêtements
+- costumes
+- robes
+- linge maison
+- avant/après
+
+Effets :
+- hover zoom
+- overlay premium
+- animations fluides
+
+========================
+9. OPTIMISATION PREMIUM
+========================
+
+Améliorer :
+- ombres
+- espacements
+- glow
+- typography
+- profondeur visuelle
+- contraste luxe
+
+Le site doit ressembler à :
+- une marque premium moderne
+- un service luxe haut de gamme
+- une startup premium noire et dorée
+
+========================
+10. IMPORTANT
+========================
+
+NE RIEN CASSER.
+NE PAS SUPPRIMER :
+- les tarifs
+- les photos existantes
+- les pages
+- les boutons WhatsApp
+- les routes
+- le design noir/doré
+- le responsive
+- les cartes actuelles
+
+Faire uniquement des améliorations premium progressives.

@@ -1,4 +1,131 @@
 import React from 'react';
-import {Link} from 'react-router-dom';import{CalendarDays,ArrowRight,Users,PackageCheck,Truck,Star,Shield,Clock}from'lucide-react';import{motion}from'framer-motion';import SectionHeader from '../components/SectionHeader';import {services} from '../data/services';import {ServiceCard,StatCard}from'../components/Cards';
-export default function Home(){return <><section className="relative overflow-hidden min-h-[calc(100vh-80px)] flex items-center noise"><div className="absolute inset-0 bg-[radial-gradient(circle_at_65%_30%,rgba(212,175,55,.18),transparent_35%),linear-gradient(90deg,#0B0B0B_0%,rgba(11,11,11,.82)_50%,rgba(11,11,11,.6)_100%)]"/><div className="containerx relative py-24 grid lg:grid-cols-2 gap-16 items-center"><motion.div initial={{opacity:0,y:30}} animate={{opacity:1,y:0}}><p className="text-gold font-black tracking-[.45em] text-xs uppercase mb-6">Premium • Rapide • Fiable</p><h1 className="font-serif text-5xl md:text-7xl xl:text-8xl leading-[.95] max-w-4xl">Le pressing premium <span className="gold-gradient">nouvelle génération</span></h1><p className="mt-8 text-zinc-300 text-lg md:text-xl leading-9 max-w-2xl">Un service d’exception pour vos vêtements. Qualité premium, livraison express et satisfaction garantie.</p><div className="mt-10 flex flex-col sm:flex-row gap-4"><Link to="/booking" className="btn-gold inline-flex justify-center items-center gap-2"><CalendarDays size={18}/> Réserver maintenant</Link><Link to="/services" className="btn-dark inline-flex justify-center items-center gap-2">Voir nos services <ArrowRight size={18}/></Link></div><div className="mt-10 grid sm:grid-cols-3 gap-4"><Mini icon={Shield} t="Qualité premium"/><Mini icon={Clock} t="Livraison 24h"/><Mini icon={Star} t="Satisfaction 100%"/></div></motion.div><div className="relative"><div className="glass rounded-[2rem] min-h-[520px] overflow-hidden p-8 flex items-end bg-[radial-gradient(circle_at_50%_30%,rgba(212,175,55,.20),transparent_34%)]"><div className="w-full h-[420px] rounded-[2rem] bg-gradient-to-br from-zinc-900 via-black to-zinc-800 border border-gold/20 relative overflow-hidden"><div className="absolute top-12 left-10 right-10 h-1 bg-gold/60"/><div className="absolute top-16 left-24 w-24 h-72 bg-black rounded-t-full border border-white/10 shadow-2xl"/><div className="absolute top-20 left-52 w-28 h-72 bg-zinc-900 rounded-t-full border border-gold/20 shadow-2xl"/><div className="absolute top-14 right-24 w-28 h-80 bg-black rounded-t-full border border-white/10 shadow-2xl"/><div className="absolute bottom-8 left-8 right-8 glass rounded-3xl p-6"><p className="font-serif text-2xl">Livraison express</p><p className="text-zinc-400 mt-2">Votre pressing livré chez vous en <span className="text-gold font-bold">24h</span>.</p></div></div></div></div></div></section><section className="section"><div className="containerx grid md:grid-cols-4 gap-5"><StatCard icon={Users} value="15K+" label="Clients satisfaits"/><StatCard icon={PackageCheck} value="50K+" label="Commandes traitées"/><StatCard icon={Truck} value="24h" label="Livraison express"/><StatCard icon={Star} value="99%" label="Satisfaction client"/></div></section><section className="section pt-0"><div className="containerx"><SectionHeader eyebrow="Nos services" title="Des services adaptés à tous vos besoins" text="Un soin précis pour chaque vêtement, du quotidien aux pièces les plus délicates."/><div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">{services.map(s=><ServiceCard key={s.title} service={s}/>)}</div></div></section><section className="section bg-card/40"><div className="containerx"><SectionHeader eyebrow="Comment ça marche" title="Un service en 4 étapes simples"/><div className="grid md:grid-cols-4 gap-6">{['Réservez en ligne','Nous collectons','Traitement premium','Livraison rapide'].map((x,i)=><div className="glass rounded-3xl p-7 text-center" key={x}><div className="mx-auto w-16 h-16 rounded-full border border-gold text-gold grid place-items-center font-serif text-2xl mb-6">0{i+1}</div><h3 className="font-bold text-xl mb-3">{x}</h3><p className="text-zinc-400">Une expérience fluide, rapide et professionnelle.</p></div>)}</div></div></section><section className="section"><div className="containerx"><SectionHeader eyebrow="Avis clients" title="Ce que disent nos clients"/><div className="grid md:grid-cols-3 gap-6">{['Service exceptionnel et très professionnel.','Livraison rapide, vêtements impeccables.','Design du service moderne et rassurant.'].map((t,i)=><div className="glass rounded-3xl p-7" key={t}><p className="text-gold mb-4">★★★★★</p><p className="text-zinc-300 leading-7">{t}</p><p className="font-bold mt-5">Client premium {i+1}</p></div>)}</div></div></section><section className="section pt-0"><div className="containerx"><div className="glass rounded-[2rem] p-10 md:p-16 text-center"><p className="text-gold uppercase tracking-[.4em] text-xs font-black mb-4">Livraison rapide</p><h2 className="font-serif text-4xl md:text-6xl">Livré en 24h ou remboursé</h2><p className="text-zinc-400 mt-5 text-lg">Commandez avant 18h et recevez vos vêtements impeccables dès le lendemain.</p><Link to="/booking" className="btn-gold inline-flex mt-8">Commander maintenant</Link></div></div></section></>}
-function Mini({icon:Icon,t}){return <div className="glass rounded-2xl p-4 flex items-center gap-3"><Icon className="text-gold" size={22}/><span className="text-sm font-bold">{t}</span></div>}
+import { Link } from 'react-router-dom';
+import { CalendarDays, ArrowRight, Shield, Clock, Star, Sparkles } from 'lucide-react';
+import { motion } from 'framer-motion';
+import SectionHeader from '../components/SectionHeader';
+import { services } from '../data/services';
+import { ServiceCard, StatCard } from '../components/Cards';
+import WhyChooseUs from '../components/WhyChooseUs';
+import StatsSection from '../components/StatsSection';
+import Testimonials from '../components/Testimonials';
+import Gallery from '../components/Gallery';
+
+export default function Home() {
+  return (
+    <>
+      <section className="relative overflow-hidden min-h-[calc(100vh-80px)] flex items-center noise">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_65%_30%,rgba(212,175,55,.18),transparent_35%),linear-gradient(90deg,#0B0B0B_0%,rgba(11,11,11,.82)_50%,rgba(11,11,11,.6)_100%)]" />
+        <div className="containerx relative py-24 grid lg:grid-cols-2 gap-16 items-center">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}>
+            <p className="text-gold font-black tracking-[.45em] text-xs uppercase mb-6">Premium • Rapide • Fiable</p>
+            <h1 className="font-serif text-5xl md:text-7xl xl:text-8xl leading-[.95] max-w-4xl">
+              Le pressing premium <span className="gold-gradient">nouvelle génération</span>
+            </h1>
+            <p className="mt-8 text-zinc-300 text-lg md:text-xl leading-9 max-w-2xl">
+              Un service d'exception pour vos vêtements. Qualité premium, livraison express et satisfaction garantie.
+            </p>
+            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+              <Link to="/booking" className="btn-gold inline-flex justify-center items-center gap-2">
+                <CalendarDays size={18} /> Réserver maintenant
+              </Link>
+              <Link to="/services" className="btn-dark inline-flex justify-center items-center gap-2">
+                Voir nos services <ArrowRight size={18} />
+              </Link>
+            </div>
+            <div className="mt-10 grid sm:grid-cols-3 gap-4">
+              <Mini icon={Shield} t="Qualité premium" />
+              <Mini icon={Clock} t="Livraison 24h" />
+              <Mini icon={Star} t="Satisfaction 100%" />
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            className="relative"
+          >
+            <motion.div
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+              className="glass rounded-[2rem] overflow-hidden relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?auto=format&fit=crop&w=1200&q=85"
+                alt="Pressing premium"
+                className="w-full h-[520px] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(212,175,55,0.15),transparent_50%)]" />
+              <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10">
+                <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 text-sm text-gold font-bold mb-4">
+                  <Sparkles size={14} /> Service Premium
+                </div>
+                <p className="text-2xl md:text-3xl font-serif text-white leading-tight">
+                  Un soin expert pour chaque textile
+                </p>
+              </div>
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold to-transparent opacity-60" />
+              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold to-transparent opacity-60" />
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="containerx">
+          <SectionHeader
+            eyebrow="Services"
+            title="Un soin premium pour chaque textile"
+            text="Ben's Pressing combine expertise, rapidité et suivi digital pour simplifier la gestion de vos vêtements."
+          />
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.slice(0, 3).map((s) => (
+              <motion.div
+                key={s.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
+                <ServiceCard service={s} />
+              </motion.div>
+            ))}
+          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="glass rounded-[2rem] mt-10 p-10 md:p-14 grid lg:grid-cols-2 gap-8 items-center"
+          >
+            <div>
+              <p className="text-gold uppercase tracking-[.35em] text-xs font-black mb-4">Collecte à domicile</p>
+              <h2 className="font-serif text-4xl md:text-5xl">Votre pressing sans déplacement</h2>
+              <p className="text-zinc-400 mt-5 leading-8">
+                Planifiez un créneau, nous collectons vos vêtements, puis nous vous les livrons propres, repassés et emballés.
+              </p>
+            </div>
+            <Link to="/booking" className="btn-gold justify-self-start lg:justify-self-end">
+              Réserver une collecte
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      <WhyChooseUs />
+      <StatsSection />
+      <Testimonials />
+      <Gallery />
+    </>
+  );
+}
+
+function Mini({ icon: Icon, t }) {
+  return (
+    <div className="glass rounded-2xl p-4 flex items-center gap-3">
+      <Icon className="text-gold" size={22} />
+      <span className="text-sm font-bold">{t}</span>
+    </div>
+  );
+}
