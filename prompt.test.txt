@@ -1,15 +1,16 @@
-Corrige Booking.jsx : en production, ne jamais appeler localhost:5000.
-Utiliser uniquement import.meta.env.VITE_API_URL pour l’API backend.
+Corrige le backend Prisma/Render.
 
-Si VITE_API_URL est absent, utiliser :
-https://bens-pressing-premium.onrender.com
+Le endpoint GET /api/orders retourne :
+{ "error": "Erreur serveur" }
 
-Au clic sur Commander :
-1. Construire le message WhatsApp.
-2. Essayer d’enregistrer la commande via POST `${API_URL}/api/orders`.
-3. Même si le backend échoue, ouvrir WhatsApp quand même.
-4. Ne jamais bloquer la redirection WhatsApp à cause d’une erreur backend.
-5. Corriger les erreurs CORS liées à localhost.
-6. Ne pas modifier le design.
-7. Ne pas modifier les prix.
-8. Ne pas casser le responsive.
+À faire :
+1. Vérifier le modèle Prisma Order
+2. Vérifier PrismaClient
+3. Vérifier DATABASE_URL
+4. Ajouter try/catch détaillé dans orderController
+5. Afficher la vraie erreur console.error(error)
+6. Vérifier que prisma.order.findMany() fonctionne
+7. Vérifier que la migration Prisma est créée
+8. Créer automatiquement la table Order si absente
+9. Corriger le déploiement Render avec Prisma
+10. Ne pas casser le frontend

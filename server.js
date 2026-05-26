@@ -70,6 +70,7 @@ app.get("/api/orders", async (req, res) => {
 
     res.json(orders);
   } catch (error) {
+    console.error("GET /api/orders error:", error);
     res.status(500).json({
       error: "Erreur serveur",
     });
@@ -92,6 +93,7 @@ app.get("/api/orders/:trackingCode", async (req, res) => {
 
     res.json(order);
   } catch (error) {
+    console.error("GET /api/orders/:trackingCode error:", error);
     res.status(500).json({
       error: "Erreur serveur",
     });
@@ -113,6 +115,7 @@ app.patch("/api/orders/:id/status", async (req, res) => {
 
     res.json(updatedOrder);
   } catch (error) {
+    console.error("PATCH /api/orders/:id/status error:", error);
     res.status(500).json({
       error: "Erreur serveur",
     });

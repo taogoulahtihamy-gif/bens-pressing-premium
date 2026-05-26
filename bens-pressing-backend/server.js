@@ -70,9 +70,63 @@ app.get("/api/orders", async (req, res) => {
 
     res.json(orders);
   } catch (error) {
+    console.error("GET /api/orders error:", error);
     res.status(500).json({
       error: "Erreur serveur",
     });
+  }
+});
+
+// RECUPERER UNE RESERVATION PAR CODE DE SUIVI
+app.get("/api/orders/:trackingCode", async (req, res) => {
+  try {
+    const order = await prisma.order.findUnique({
+      where: { trackingCode: req.params.trackingCode },
+    });
+
+    if (!order) {
+      return res.status(404).json({ error: "Commande introuvable" });
+    }
+
+    res.json(order);
+  } catch (error) {
+    console.error("GET /api/orders/:trackingCode error:", error);
+    res.status(500).json({ error: "Erreur serveur" });
+  }
+});
+
+// METTRE A JOUR LE STATUT D'UNE RESERVATION
+app.patch("/api/orders/:id/status", async (req, res) => {
+  try {
+    const { status } = req.body;
+    const validStatuses = ["pending", "confirmed", "processing", "ready", "delivered"];
+    if (!validStatuses.includes(status)) {
+      return res.status(400).json({ error: "Statut invalide" });
+    }
+
+    const updatedOrder = await prisma.order.update({
+      where: { id: Number(req.params.id) },
+      data: { status },
+    });
+
+    res.json(updatedOrder);
+  } catch (error) {
+    console.error("PATCH /api/orders/:id/status error:", error);
+    res.status(500).json({ error: "Erreur serveur" });
+  }
+});
+
+// SUPPRIMER UNE RESERVATION
+app.delete("/api/orders/:id", async (req, res) => {
+  try {
+    await prisma.order.delete({
+      where: { id: Number(req.params.id) },
+    });
+
+    res.json({ message: "Commande supprimée" });
+  } catch (error) {
+    console.error("DELETE /api/orders/:id error:", error);
+    res.status(500).json({ error: "Erreur serveur" });
   }
 });
 
