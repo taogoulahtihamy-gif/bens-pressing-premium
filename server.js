@@ -61,6 +61,7 @@ app.post("/api/orders", async (req, res) => {
 });
 
 app.get("/api/orders", async (req, res) => {
+  console.log("GET /api/orders called");
   try {
     const orders = await prisma.order.findMany({
       orderBy: {
