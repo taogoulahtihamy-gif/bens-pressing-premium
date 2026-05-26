@@ -14,7 +14,7 @@ export const pricing = [
       { name: 'Veste', price: '3 000 FCFA', image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=900&q=80' },
       { name: 'Costume complet', price: '5 000 FCFA', image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=80' },
       { name: 'Robe simple', price: '1 500 FCFA', image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=900&q=80' },
-      { name: 'Robe de soirée', price: 'à partir de 2 500 FCFA', image: 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=900&q=80' },
+      { name: 'Robe de soirée', price: 'à partir de 2 500 FCFA', image: 'https://images.unsplash.com/photo-1758116921606-b628f2055cf5?auto=format&fit=crop&w=900&q=80' },
       { name: 'Robe complexe', price: 'à partir de 5 000 FCFA', image: 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=900&q=80' },
       { name: 'Tenue de cérémonie', price: '5 000 FCFA', image: 'https://images.unsplash.com/photo-1516762689617-e1cffcef479d?auto=format&fit=crop&w=900&q=80' },
     ],
@@ -23,7 +23,7 @@ export const pricing = [
     cat: 'Tenues africaines & linge maison',
     items: [
       { name: 'Boubou simple', price: '2 000 FCFA', image: 'https://images.unsplash.com/photo-1763823183722-bba1c4f14c4f?auto=format&fit=crop&w=900&q=80' },
-      { name: 'Grand boubou', price: '4 000 FCFA', image: 'https://images.unsplash.com/photo-1745669702821-b994a8b9ad78?auto=format&fit=crop&w=900&q=80' },
+      { name: 'Grand boubou', price: '4 000 FCFA', image: 'https://images.unsplash.com/photo-1767929820469-9aca9080cc99?auto=format&fit=crop&w=900&q=80' },
       { name: 'Couverture', price: 'à partir de 4 000 FCFA', image: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=900&q=80' },
       { name: 'Serviette', price: '1 000 à 1 500 FCFA', image: 'https://images.unsplash.com/photo-1760722974657-f64bce2f9cc5?auto=format&fit=crop&w=900&q=80' },
     ],

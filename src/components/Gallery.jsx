@@ -8,7 +8,7 @@ const images = [
   { src: 'https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?auto=format&fit=crop&w=800&q=80', alt: 'Nettoyage pressing premium', cat: 'Pressing' },
   { src: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80', alt: 'Chemises élégantes', cat: 'Vêtements' },
   { src: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80', alt: 'Costume sur mesure', cat: 'Costumes' },
-  { src: 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=800&q=80', alt: 'Robe de soirée élégante', cat: 'Robes' },
+  { src: 'https://images.unsplash.com/photo-1758116921606-b628f2055cf5?auto=format&fit=crop&w=800&q=80', alt: 'Robe de soirée élégante', cat: 'Robes' },
   { src: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=800&q=80', alt: 'Linge maison luxe', cat: 'Linge maison' },
   { src: 'https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?auto=format&fit=crop&w=800&q=80', alt: 'Repassage professionnel', cat: 'Pressing' },
 ];

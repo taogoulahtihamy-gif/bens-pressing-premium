@@ -1,12 +1,27 @@
-Corrige uniquement les images du site Ben’s Pressing, sans toucher au design ni aux fonctionnalités.
+Corrige uniquement les images humaines du site Ben’s Pressing sans modifier le design, les prix, les routes ou les fonctionnalités.
 
-1. Remplacer l’image “Boubou simple” par une vraie photo de boubou africain simple porté par une personne noire africaine.
-2. Remplacer l’image “Grand boubou” par une vraie photo de grand boubou africain élégant porté par une personne noire africaine.
-3. Remplacer l’image “Serviette” par une vraie photo premium de serviettes pliées.
-4. Sur tout le site, si une photo contient une personne, elle doit représenter une personne noire africaine.
-5. Ne pas modifier les prix.
-6. Ne pas modifier les textes.
-7. Ne pas modifier WhatsApp.
-8. Ne pas modifier les routes.
-9. Ne pas casser le responsive mobile.
-10. Garder le style noir/doré premium actuel.
+PROBLÈMES À CORRIGER :
+
+1. Supprimer complètement l’image actuelle de “Grand boubou”.
+2. Remplacer “Grand boubou” par une vraie photo premium d’un homme noir africain portant un grand boubou sénégalais élégant.
+3. Dans toute la section des tarifs et services, toutes les personnes visibles doivent être noires africaines.
+4. Remplacer les images suivantes qui montrent encore des personnes blanches :
+   - Robe de soirée
+   - Linge maison luxe
+   - Les témoignages clients avec avatars blancs
+   - Toute autre photo contenant une personne non africaine
+5. Garder uniquement des modèles noirs africains élégants et premium.
+6. Conserver le style luxe noir et doré actuel.
+7. Ne pas toucher :
+   - WhatsApp
+   - Responsive mobile
+   - Navigation
+   - Prix
+   - Backend
+   - Structure React
+8. Vérifier que toutes les nouvelles images ont :
+   - même taille
+   - mêmes bordures arrondies
+   - bon cadrage
+   - bonne qualité HD
+9. Ne rien casser du site actuel.
