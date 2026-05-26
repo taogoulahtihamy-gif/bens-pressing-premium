@@ -1,17 +1,36 @@
-Corrige server.js car /api/orders reste vide après migration Prisma.
+Corrige Tracking.jsx définitivement.
 
-Problème :
-- Prisma migrations completed
-- Server running
-- Mais GET https://bens-pressing-premium.onrender.com/api/orders ne retourne rien
+BUG :
+La page Suivi appelle encore localhost:5173.
+En production, aucun appel localhost ne doit exister.
 
 À faire :
-1. Vérifier app.get("/api/orders")
-2. Forcer la réponse JSON même s’il n’y a aucune commande
-3. Ajouter console.log("GET /api/orders called")
-4. Ajouter console.error(error)
-5. Le endpoint doit retourner :
-   [] si aucune commande
-6. Ne jamais laisser la requête sans réponse
-7. Corriger aussi POST /api/orders si besoin
-8. Ne pas modifier le frontend ni le design
+1. Dans Tracking.jsx, supprimer tous les localhost.
+2. Créer :
+const API_URL = import.meta.env.VITE_API_URL || "https://bens-pressing-premium.onrender.com";
+
+3. Au clic Rechercher, appeler exactement :
+fetch(`${API_URL}/api/orders/track/${trackingCode.trim().toUpperCase()}`)
+
+4. Dans server.js, vérifier que cette route existe :
+app.get("/api/orders/track/:trackingCode", async (req, res) => {
+  const code = req.params.trackingCode.trim().toUpperCase();
+  const order = await prisma.order.findUnique({
+    where: { trackingCode: code }
+  });
+
+  if (!order) {
+    return res.status(404).json({ success: false, message: "Commande introuvable" });
+  }
+
+  res.json({ success: true, order });
+});
+
+5. Après correction :
+npm run build
+git add .
+git commit -m "fix tracking production api url"
+git push
+
+6. Ne pas modifier le design.
+7. Ne pas casser admin, booking, WhatsApp ou tarifs.

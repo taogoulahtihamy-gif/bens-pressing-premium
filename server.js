@@ -80,23 +80,16 @@ app.get("/api/orders", async (req, res) => {
 
 app.get("/api/orders/track/:trackingCode", async (req, res) => {
   try {
+    const code = req.params.trackingCode.trim().toUpperCase();
     const order = await prisma.order.findUnique({
-      where: {
-        trackingCode: req.params.trackingCode.trim().toUpperCase(),
-      },
+      where: { trackingCode: code },
     });
 
     if (!order) {
-      return res.json({
-        success: false,
-        message: "Commande introuvable",
-      });
+      return res.status(404).json({ success: false, message: "Commande introuvable" });
     }
 
-    res.json({
-      success: true,
-      order,
-    });
+    res.json({ success: true, order });
   } catch (error) {
     console.error("GET /api/orders/track/:trackingCode error:", error);
     res.status(500).json({

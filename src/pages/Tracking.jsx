@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import SectionHeader from '../components/SectionHeader';
 
-const API_URL = import.meta.env.VITE_API_URL || 'https://bens-pressing-premium.onrender.com';
+const API_URL = import.meta.env.VITE_API_URL || "https://bens-pressing-premium.onrender.com";
 
 const statusSteps = ['Commande reçue', 'Collecte programmée', 'En traitement', 'Prêt', 'Livré'];
 
@@ -33,8 +33,7 @@ export default function Tracking() {
     setError(null);
     setOrder(null);
     try {
-      const code = trackingCode.trim().toUpperCase();
-      const res = await fetch(`${API_URL}/api/orders/track/${code}`);
+      const res = await fetch(`${API_URL}/api/orders/track/${trackingCode.trim().toUpperCase()}`);
       const data = await res.json();
       if (data.success) {
         setOrder(data.order);
