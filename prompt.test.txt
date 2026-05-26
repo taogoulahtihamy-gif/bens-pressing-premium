@@ -1,16 +1,27 @@
-Corrige le backend Prisma/Render.
+Corrige définitivement Prisma sur Render.
 
-Le endpoint GET /api/orders retourne :
-{ "error": "Erreur serveur" }
+Erreur actuelle :
+The table public.Order does not exist in the current database.
 
 À faire :
-1. Vérifier le modèle Prisma Order
-2. Vérifier PrismaClient
-3. Vérifier DATABASE_URL
-4. Ajouter try/catch détaillé dans orderController
-5. Afficher la vraie erreur console.error(error)
-6. Vérifier que prisma.order.findMany() fonctionne
-7. Vérifier que la migration Prisma est créée
-8. Créer automatiquement la table Order si absente
-9. Corriger le déploiement Render avec Prisma
-10. Ne pas casser le frontend
+
+1. Vérifier prisma/schema.prisma
+2. Vérifier que le model Order existe bien
+3. Générer la migration Prisma
+4. Ajouter automatiquement :
+   npx prisma generate
+   npx prisma migrate deploy
+5. Corriger le build Render pour exécuter les migrations au démarrage
+6. Vérifier DATABASE_URL
+7. Ne pas casser le frontend
+8. Ne pas modifier le design
+9. Garder POST /api/orders
+10. Garder GET /api/orders
+11. Corriger définitivement la création de la table Order
+
+Après correction :
+https://bens-pressing-premium.onrender.com/api/orders
+doit retourner :
+[]
+
+ou les commandes enregistrées.

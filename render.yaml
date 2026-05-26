@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: bens-pressing-backend
+    runtime: node
+    repo: https://github.com/taogoulahtihamy-gif/bens-pressing-premium.git
+    rootDir: bens-pressing-backend
+    buildCommand: npm run render-build
+    startCommand: npm start
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: PORT
+        value: "5000"
+      - key: NODE_VERSION
+        value: "20"

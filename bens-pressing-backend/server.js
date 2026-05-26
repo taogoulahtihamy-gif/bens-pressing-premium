@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { PrismaClient } from "@prisma/client";
+import { execSync } from "child_process";
 
 dotenv.config();
 
@@ -12,6 +13,15 @@ app.use(cors());
 app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
+
+// Auto-run Prisma migrations on startup
+try {
+  console.log("Running Prisma migrations...");
+  execSync("npx prisma migrate deploy", { stdio: "inherit" });
+  console.log("Prisma migrations completed.");
+} catch (err) {
+  console.error("Prisma migration failed:", err.message);
+}
 
 app.get("/", (req, res) => {
   res.json({ message: "Ben's Pressing API running" });
