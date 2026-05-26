@@ -33,7 +33,8 @@ export default function Tracking() {
     setError(null);
     setOrder(null);
     try {
-      const res = await fetch(`${API_URL}/api/orders/track/${trackingCode.trim()}`);
+      const code = trackingCode.trim().toUpperCase();
+      const res = await fetch(`${API_URL}/api/orders/track/${code}`);
       const data = await res.json();
       if (data.success) {
         setOrder(data.order);

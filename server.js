@@ -82,7 +82,7 @@ app.get("/api/orders/track/:trackingCode", async (req, res) => {
   try {
     const order = await prisma.order.findUnique({
       where: {
-        trackingCode: req.params.trackingCode,
+        trackingCode: req.params.trackingCode.trim().toUpperCase(),
       },
     });
 
