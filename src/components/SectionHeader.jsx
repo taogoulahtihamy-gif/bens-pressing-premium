@@ -1,0 +1,2 @@
+import React from 'react';
+export default function SectionHeader({eyebrow,title,text,center=true}){return <div className={`${center?'text-center mx-auto':'text-left'} max-w-3xl mb-14`}><p className="text-gold uppercase tracking-[.35em] text-xs font-black mb-4">{eyebrow}</p><h2 className="font-serif text-4xl md:text-6xl leading-tight">{title}</h2>{text&&<p className="text-zinc-400 text-lg mt-5 leading-8">{text}</p>}</div>}

@@ -1,0 +1,72 @@
+Créer le backend complet du projet Ben’s Pressing avec Node.js + Express + PostgreSQL.
+
+OBJECTIF :
+Permettre :
+- réservation réelle,
+- stockage commandes,
+- suivi commande,
+- dashboard admin.
+
+STACK :
+- Node.js
+- Express
+- PostgreSQL
+- Prisma ORM
+- dotenv
+- cors
+- nodemon
+
+STRUCTURE :
+src/
+  controllers/
+  routes/
+  middleware/
+  services/
+  prisma/
+  app.js
+  server.js
+
+FONCTIONNALITÉS :
+1. POST /api/orders
+Créer une commande
+
+2. GET /api/orders
+Lister commandes
+
+3. GET /api/orders/:trackingCode
+Suivi commande
+
+4. PATCH /api/orders/:id/status
+Changer statut
+
+STATUTS :
+- pending
+- collected
+- cleaning
+- ironing
+- delivery
+- completed
+
+DONNÉES COMMANDE :
+- id
+- fullName
+- phone
+- address
+- service
+- clothes
+- instructions
+- pickupDate
+- pickupTime
+- totalPrice
+- status
+- trackingCode
+- createdAt
+
+IMPORTANT :
+- Générer automatiquement trackingCode
+- API propre
+- Architecture professionnelle
+- Prisma schema complet
+- .env complet
+- PostgreSQL prêt
+- Projet fonctionnel avec npm install puis npm run dev
