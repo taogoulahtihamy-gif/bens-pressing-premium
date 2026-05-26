@@ -1,4 +1,3 @@
-@'
 generator client {
   provider = "prisma-client-js"
 }
@@ -23,4 +22,3 @@ model Order {
   trackingCode String   @unique
   createdAt    DateTime @default(now())
 }
-'@ | Set-Content prisma/schema.prisma

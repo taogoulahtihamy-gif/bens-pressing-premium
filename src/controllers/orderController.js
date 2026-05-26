@@ -39,13 +39,23 @@ export async function updateOrderStatus(req, res, next) {
   try {
     const { id } = req.params
     const { status } = req.body
-    const validStatuses = ["pending", "collected", "cleaning", "ironing", "delivery", "completed"]
+    const validStatuses = ["pending", "confirmed", "processing", "ready", "delivered"]
     if (!validStatuses.includes(status)) {
       return res.status(400).json({ error: "Statut invalide." })
     }
     const order = await orderService.updateOrderStatus(parseInt(id), status)
     if (!order) return res.status(404).json({ error: "Commande introuvable." })
     res.json(order)
+  } catch (err) {
+    next(err)
+  }
+}
+
+export async function deleteOrder(req, res, next) {
+  try {
+    const { id } = req.params
+    await orderService.deleteOrder(parseInt(id))
+    res.json({ message: "Commande supprimée" })
   } catch (err) {
     next(err)
   }

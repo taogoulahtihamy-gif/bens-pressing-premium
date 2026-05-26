@@ -1,27 +1,92 @@
-Corrige uniquement les images humaines du site Ben’s Pressing sans modifier le design, les prix, les routes ou les fonctionnalités.
+Ajoute maintenant un vrai système de commandes connecté au backend EXISTANT sans casser le design actuel premium noir et doré.
 
-PROBLÈMES À CORRIGER :
+OBJECTIF :
+Le client doit pouvoir :
+1. Remplir une réservation
+2. Être redirigé vers WhatsApp avec message prérempli
+3. ET la commande doit aussi être enregistrée dans la base de données/backend pour l’admin
 
-1. Supprimer complètement l’image actuelle de “Grand boubou”.
-2. Remplacer “Grand boubou” par une vraie photo premium d’un homme noir africain portant un grand boubou sénégalais élégant.
-3. Dans toute la section des tarifs et services, toutes les personnes visibles doivent être noires africaines.
-4. Remplacer les images suivantes qui montrent encore des personnes blanches :
-   - Robe de soirée
-   - Linge maison luxe
-   - Les témoignages clients avec avatars blancs
-   - Toute autre photo contenant une personne non africaine
-5. Garder uniquement des modèles noirs africains élégants et premium.
-6. Conserver le style luxe noir et doré actuel.
-7. Ne pas toucher :
-   - WhatsApp
-   - Responsive mobile
-   - Navigation
-   - Prix
-   - Backend
-   - Structure React
-8. Vérifier que toutes les nouvelles images ont :
-   - même taille
-   - mêmes bordures arrondies
-   - bon cadrage
-   - bonne qualité HD
-9. Ne rien casser du site actuel.
+IMPORTANT :
+- Ne pas supprimer le backend
+- Ne pas casser le frontend actuel
+- Garder tout le design premium existant
+- Garder Tailwind, React et l’architecture actuelle
+- Ne pas modifier les pages déjà stables
+
+À AJOUTER :
+
+1. FORMULAIRE DE COMMANDE PREMIUM
+Champs :
+- nom complet
+- téléphone
+- adresse
+- type de prestation
+- date souhaitée
+- commentaire
+- bouton “Commander maintenant”
+
+2. WHATSAPP
+Au clic :
+- ouvrir WhatsApp avec message prérempli :
+Bonjour Ben’s Pressing, je souhaite effectuer une commande.
+
+Nom :
+Téléphone :
+Prestation :
+Adresse :
+Date :
+Commentaire :
+
+Utiliser le numéro :
++221774626760
+
+3. ENREGISTREMENT BACKEND
+Créer une vraie API :
+POST /api/orders
+
+Les commandes doivent être sauvegardées avec :
+- id
+- nom
+- téléphone
+- adresse
+- prestation
+- date
+- commentaire
+- statut
+- createdAt
+
+4. STATUTS ADMIN
+Ajouter :
+- En attente
+- Confirmée
+- En traitement
+- Prête
+- Livrée
+
+5. DASHBOARD ADMIN
+Créer ou améliorer :
+/admin
+
+Fonctionnalités :
+- voir toutes les commandes
+- changer statut
+- supprimer commande
+- compteur total commandes
+- design premium noir/or
+
+6. BASE DE DONNÉES
+Utiliser Prisma déjà présent.
+Créer le modèle Order proprement.
+
+7. MOBILE
+Tout doit rester parfaitement responsive mobile.
+
+8. IMPORTANT
+Ne rien casser :
+- navigation
+- sections services
+- tarifs
+- images
+- WhatsApp flottant
+- animations
+- design actuel

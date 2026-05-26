@@ -37,3 +37,9 @@ export async function updateOrderStatus(id, status) {
     data: { status },
   })
 }
+
+export async function deleteOrder(id) {
+  return await prisma.order.delete({
+    where: { id },
+  })
+}
