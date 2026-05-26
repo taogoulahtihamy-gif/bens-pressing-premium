@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SectionHeader from '../components/SectionHeader';
 import { Banknote, Clock, PackageCheck, Truck, Trash2 } from 'lucide-react';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const API_URL = import.meta.env.VITE_API_URL || 'https://bens-pressing-premium.onrender.com';
 
 const statusLabels = {
   pending: 'En attente',

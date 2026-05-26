@@ -3,7 +3,7 @@ import SectionHeader from '../components/SectionHeader';
 import { pricing } from '../data/pricing';
 
 const WHATSAPP_NUMBER = '221774626760';
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const API_URL = import.meta.env.VITE_API_URL || 'https://bens-pressing-premium.onrender.com';
 
 const services = ['Nettoyage à sec', 'Repassage premium', 'Lavage express', 'Retouches', 'Linge maison'];
 const times = ['8h - 10h', '10h - 12h', '14h - 16h', '16h - 18h'];
@@ -27,41 +27,17 @@ export default function Booking() {
     delivery: 'Standard - 1 000 FCFA',
     instructions: '',
   });
-  const [sending, setSending] = useState(false);
-
   const update = (event) => {
     const { name, value } = event.target;
     setForm((current) => ({ ...current, [name]: value }));
   };
 
-  const sendToWhatsApp = async (event) => {
+  const sendToWhatsApp = (event) => {
     event.preventDefault();
 
     if (!form.fullName || !form.phone || !form.address || !form.pickupDate) {
       alert('Veuillez remplir le nom, le téléphone, l’adresse et la date de collecte.');
       return;
-    }
-
-    setSending(true);
-
-    try {
-      await fetch(`${API_URL}/api/orders`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          fullName: form.fullName,
-          phone: form.phone,
-          address: form.address,
-          service: form.service,
-          clothes: form.clothes,
-          pickupDate: form.pickupDate,
-          pickupTime: form.pickupTime,
-          instructions: form.instructions || '',
-          totalPrice: deliveryPrices[form.delivery] || 0,
-        }),
-      });
-    } catch (err) {
-      console.error('Erreur lors de l’enregistrement de la commande:', err);
     }
 
     const message = `Bonjour Ben's Pressing, je souhaite faire une commande.%0A%0A` +
@@ -77,7 +53,22 @@ export default function Booking() {
       `Merci de confirmer ma réservation.`;
 
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank', 'noopener,noreferrer');
-    setSending(false);
+
+    fetch(`${API_URL}/api/orders`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        fullName: form.fullName,
+        phone: form.phone,
+        address: form.address,
+        service: form.service,
+        clothes: form.clothes,
+        pickupDate: form.pickupDate,
+        pickupTime: form.pickupTime,
+        instructions: form.instructions || '',
+        totalPrice: deliveryPrices[form.delivery] || 0,
+      }),
+    }).catch((err) => console.error('Erreur enregistrement commande:', err));
   };
 
   return (
@@ -123,8 +114,8 @@ export default function Booking() {
               placeholder="Instructions particulières : taches, urgence, type de tissu, nombre de pièces..."
             />
 
-            <button type="submit" className="btn-gold md:col-span-2" disabled={sending}>
-              {sending ? 'Envoi en cours…' : 'Commander maintenant'}
+            <button type="submit" className="btn-gold md:col-span-2">
+              Commander maintenant
             </button>
           </form>
 
