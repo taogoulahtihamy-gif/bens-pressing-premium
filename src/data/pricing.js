@@ -28,6 +28,12 @@ export const pricing = [
       { name: 'Serviette', price: '1 000 à 1 500 FCFA', image: 'https://images.unsplash.com/photo-1760722974657-f64bce2f9cc5?auto=format&fit=crop&w=900&q=80' },
     ],
   },
+  {
+    cat: 'Économique',
+    items: [
+      { name: 'Lavage au kilo', price: 'À partir de 500 FCFA / kg', image: 'https://images.unsplash.com/photo-1545173168-9f1947eebb7f?auto=format&fit=crop&w=900&q=80' },
+    ],
+  },
 ];
 
 export const packs = [

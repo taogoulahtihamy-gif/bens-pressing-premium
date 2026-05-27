@@ -1,4 +1,4 @@
-import { Shirt, Sparkles, Zap, Scissors, Sofa, Gem } from 'lucide-react';
+import { Shirt, Sparkles, Zap, Scissors, Sofa, Gem, Weight } from 'lucide-react';
 
 export const services = [
   {
@@ -36,5 +36,18 @@ export const services = [
     title: 'Linge maison',
     text: 'Draps, rideaux, couvertures, serviettes et textiles volumineux.',
     image: 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    icon: Weight,
+    title: 'Lavage Express au kilo',
+    text: 'Une solution accessible pour tous, sans compromis sur la propreté.',
+    badge: 'ÉCONOMIQUE',
+    points: [
+      'Lavage simple et propre',
+      'Tri des vêtements',
+      'Service économique',
+      'Rapide et pratique',
+    ],
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=1200&q=80',
   },
 ];

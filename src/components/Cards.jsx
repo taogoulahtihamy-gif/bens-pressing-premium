@@ -3,16 +3,33 @@ import React from 'react';
 export function ServiceCard({ service }) {
   const Icon = service.icon;
   return (
-    <div className="glass rounded-3xl overflow-hidden hover:-translate-y-1 transition min-h-[280px]">
+    <div className={`glass rounded-3xl overflow-hidden hover:-translate-y-1 transition min-h-[280px] ${service.badge ? 'glow-gold' : ''}`}>
       {service.image && (
         <div className="h-40 bg-cover bg-center" style={{ backgroundImage: `url(${service.image})` }} />
       )}
       <div className="p-7">
-        <div className="w-14 h-14 rounded-2xl bg-gold/15 text-gold grid place-items-center mb-6">
-          <Icon size={28} />
+        <div className="flex items-start justify-between mb-6">
+          <div className="w-14 h-14 rounded-2xl bg-gold/15 text-gold grid place-items-center">
+            <Icon size={28} />
+          </div>
+          {service.badge && (
+            <span className="text-[10px] font-black uppercase tracking-wider bg-gold/15 text-gold border border-gold/30 px-3 py-1.5 rounded-full">
+              {service.badge}
+            </span>
+          )}
         </div>
         <h3 className="font-serif text-2xl mb-3">{service.title}</h3>
-        <p className="text-zinc-400 leading-7">{service.text}</p>
+        <p className="text-zinc-400 leading-7 mb-4">{service.text}</p>
+        {service.points && (
+          <ul className="space-y-2">
+            {service.points.map((point) => (
+              <li key={point} className="flex items-center gap-2 text-zinc-300 text-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
+                {point}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );

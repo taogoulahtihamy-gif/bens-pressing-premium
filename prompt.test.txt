@@ -1,36 +1,60 @@
-Corrige Tracking.jsx définitivement.
+Ajoute un nouveau service économique dans le site Ben’s Pressing Premium sans casser le design premium noir/doré existant.
 
-BUG :
-La page Suivi appelle encore localhost:5173.
-En production, aucun appel localhost ne doit exister.
+OBJECTIF :
+Ajouter une offre “Lavage au kilo” destinée aux clients avec petit budget.
 
-À faire :
-1. Dans Tracking.jsx, supprimer tous les localhost.
-2. Créer :
-const API_URL = import.meta.env.VITE_API_URL || "https://bens-pressing-premium.onrender.com";
+À MODIFIER :
+1. Section Services
+2. Section Tarifs
+3. Booking/Réservation si nécessaire
+4. Admin si les services sont listés dynamiquement
 
-3. Au clic Rechercher, appeler exactement :
-fetch(`${API_URL}/api/orders/track/${trackingCode.trim().toUpperCase()}`)
+NOUVEAU SERVICE :
 
-4. Dans server.js, vérifier que cette route existe :
-app.get("/api/orders/track/:trackingCode", async (req, res) => {
-  const code = req.params.trackingCode.trim().toUpperCase();
-  const order = await prisma.order.findUnique({
-    where: { trackingCode: code }
-  });
+Titre :
+Lavage Express au kilo
 
-  if (!order) {
-    return res.status(404).json({ success: false, message: "Commande introuvable" });
-  }
+Description :
+Une solution accessible pour tous, sans compromis sur la propreté.
 
-  res.json({ success: true, order });
-});
+Points :
+- Lavage simple et propre
+- Tri des vêtements
+- Service économique
+- Rapide et pratique
 
-5. Après correction :
+Badge premium :
+ÉCONOMIQUE
+
+STYLE :
+- Garder le design premium noir/doré actuel
+- Carte élégante avec glow doré
+- Responsive mobile
+- Animation hover premium
+- Icône linge/lavage moderne
+
+TARIF À AJOUTER :
+
+Lavage au kilo — 500 FCFA / kg
+
+Ajouter aussi :
+“À partir de 500 FCFA / kg”
+
+BOOKING :
+Ajouter ce service dans les options de réservation.
+
+ADMIN :
+Faire apparaître “Lavage au kilo” dans les commandes admin.
+
+IMPORTANT :
+- Ne pas casser le backend
+- Ne pas casser le tracking
+- Ne pas modifier WhatsApp
+- Ne pas casser les routes admin
+- Garder tout le thème premium actuel
+
+Après modification :
 npm run build
 git add .
-git commit -m "fix tracking production api url"
+git commit -m "add washing by kg service"
 git push
-
-6. Ne pas modifier le design.
-7. Ne pas casser admin, booking, WhatsApp ou tarifs.

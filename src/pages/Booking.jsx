@@ -5,7 +5,7 @@ import { pricing } from '../data/pricing';
 const WHATSAPP_NUMBER = '221774626760';
 const API_URL = import.meta.env.VITE_API_URL || 'https://bens-pressing-premium.onrender.com';
 
-const services = ['Nettoyage à sec', 'Repassage premium', 'Lavage express', 'Retouches', 'Linge maison'];
+const services = ['Nettoyage à sec', 'Repassage premium', 'Lavage express', 'Retouches', 'Linge maison', 'Lavage Express au kilo'];
 const times = ['8h - 10h', '10h - 12h', '14h - 16h', '16h - 18h'];
 
 const deliveryPrices = {
